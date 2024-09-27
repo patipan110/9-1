@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มสั่งอาหาร</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .food-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>สั่งอาหารออนไลน์</h1>
+    <form action="/submit-order" method="POST">
+
+        <!-- เลือกรายการอาหาร -->
+        <h2>เลือกอาหาร</h2>
+        <div class="food-item">
+            <label for="food1">
+                <input type="checkbox" id="food1" name="food[]" value="ข้าวผัดหมู"> ข้าวผัดหมู - 50 บาท
+            </label>
+            <label>จำนวน: <input type="number" name="quantity1" value="1" min="1"></label>
+        </div>
+
+        <div class="food-item">
+            <label for="food2">
+                <input type="checkbox" id="food2" name="food[]" value="ส้มตำ"> ส้มตำ - 40 บาท
+            </label>
+            <label>จำนวน: <input type="number" name="quantity2" value="1" min="1"></label>
+        </div>
+
+        <div class="food-item">
+            <label for="food3">
+                <input type="checkbox" id="food3" name="food[]" value="ก๋วยเตี๋ยว"> ก๋วยเตี๋ยว - 60 บาท
+            </label>
+            <label>จำนวน: <input type="number" name="quantity3" value="1" min="1"></label>
+        </div>
+
+        <!-- ที่อยู่สำหรับจัดส่ง -->
+        <h2>ที่อยู่สำหรับจัดส่ง</h2>
+        <textarea name="address" rows="4" placeholder="กรอกที่อยู่สำหรับจัดส่ง" required></textarea>
+
+        <!-- เลือกวิธีการชำระเงิน -->
+        <h2>วิธีการชำระเงิน</h2>
+        <label><input type="radio" name="payment" value="เงินสด" checked> เงินสด</label>
+        <label><input type="radio" name="payment" value="บัตรเครดิต"> บัตรเครดิต/เดบิต</label>
+
+        <!-- หมายเหตุพิเศษ -->
+        <h2>หมายเหตุพิเศษ (ถ้ามี)</h2>
+        <textarea name="special_instructions" rows="2" placeholder="กรอกหมายเหตุ เช่น ไม่ใส่เผ็ด"></textarea>
+
+        <!-- รหัสโปรโมชัน -->
+        <h2>รหัสโปรโมชัน (ถ้ามี)</h2>
+        <input type="text" name="promo_code" placeholder="กรอกรหัสโปรโมชัน">
+
+        <!-- ปุ่มยืนยันการสั่งซื้อ -->
+        <button type="submit">ยืนยันการสั่งซื้อ</button>
+
+    </form>
+</div>
+
+</body>
+</html>
